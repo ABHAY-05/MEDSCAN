@@ -49,6 +49,7 @@ function Navbar() {
               to="about"
               spy={true}
               smooth={true}
+              offset={-58}
               duration={500}
               className='hover:text-yellow-400 flex items-center transform transition-transform duration-300 hover:translate-y-[-2px] cursor-pointer'
             >

@@ -4,4 +4,30 @@
     font-family: "Poetsen One", sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #dce6ff; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1d4ed8; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e40af;  
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1d4ed8 #dce6ff;
+}
+
+.active {
+  color: rgb(250 204 21 / 1);
+}

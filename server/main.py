@@ -46,11 +46,11 @@ async def main(model_name: str = Form(...), file: UploadFile = File(...)):
     try:
         image = read_imagefile(await file.read())
         
-        if model_name.lower() == "pneumonia":
+        if model_name == "pneumonia":
             prediction = await model.predict_pneumonia(image)
-        elif model_name.lower() == "skin_disease":
+        elif model_name == "skinDisease":
             prediction = await model.predict_skin_disease(image)
-        elif model_name.lower() == "eye_disease":
+        elif model_name == "eyeDisease":
             prediction = await model.predict_eye_disease(image)
         else:
             raise HTTPException(status_code=400, detail="Invalid model name")

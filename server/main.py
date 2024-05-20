@@ -4,8 +4,6 @@ from fastapi.responses import JSONResponse
 import numpy as np
 import cv2
 from Models import *
-import io
-from PIL import Image
 
 app = FastAPI()
 app.add_middleware(

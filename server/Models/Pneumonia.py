@@ -18,7 +18,7 @@ class Pneumonia:
         model.add(GlobalAveragePooling2D())
         model.add(Dense(1, activation='sigmoid'))
         
-        model.load_weights('Models\\data\\pneumonia_weights.h5')
+        model.load_weights('data\\pneumonia_weights.h5')
 
         return model
     

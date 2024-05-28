@@ -44,7 +44,7 @@ class SkinDisease:
         predictions = Dense(self.num_classes, activation='softmax')(x)
         model = Model(inputs=base_model.input, outputs=predictions)
         
-        model.load_weights('data\\skin_weights.h5')
+        model.load_weights('Models\\data\\skin_weights.h5')
 
         return model
 

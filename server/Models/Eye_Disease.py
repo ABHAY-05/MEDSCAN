@@ -10,7 +10,7 @@ class EyeDisease:
         self.num_classes = num_classes
         self.model = self.load_Model()
         self.clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-        self.reference_image = self.load_reference_image('data\\0.jpg')
+        self.reference_image = self.load_reference_image('Models\\data\\0.jpg')
         self.disease_classes = [
             "Normal", "Cataract", "Diabetes", "Glaucoma",
             "Hypertension", "Myopia", "Age Issues", "Other"
@@ -81,7 +81,7 @@ class EyeDisease:
         model.add(Dense(100, activation='relu'))
         model.add(Dense(self.num_classes, activation='softmax'))
 
-        model.load_weights('data\\eye_weights.h5')
+        model.load_weights('Models\\data\\eye_weights.h5')
 
         return model
 

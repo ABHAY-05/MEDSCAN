@@ -49,20 +49,18 @@ const Predict = ({ modelName }) => {
   };
 
   return (
-    <div className="bg-gray-100 h-screen flex flex-col items-center justify-center">
-      <h1 className="text-5xl font-bold text-blue-700 mb-10">{getTitle()}</h1>
-      <div className="bg-white p-10 shadow-md rounded-lg w-3/4 md:w-1/2 flex">
-        <div className="flex flex-col items-center w-1/2">
-          <h2 className="text-2xl font-semibold mb-6 text-blue-700">Upload Image</h2>
+    <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center py-10">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-700 mb-10 mt-[2vh]">{getTitle()}</h1>
+      <div className="bg-white p-6 md:p-10 shadow-md rounded-lg w-11/12 md:w-3/4 lg:w-1/2 flex flex-col md:flex-row">
+        <div className="flex flex-col items-center w-full md:w-1/2 mb-6 md:mb-0">
+          <h2 className="text-2xl font-semibold mb-4 md:mb-6 text-blue-700">Upload Image</h2>
           {!selectedFile && (
-            <>
-              <input type="file" onChange={handleFileChange} className="block w-full text-lg px-3 py-1.5 border rounded-md" />
-            </>
+            <input type="file" onChange={handleFileChange} className="block w-full text-lg px-3 py-1.5 border rounded-md" />
           )}
           {selectedFile && (
-            <div className="mt-4">
-              <img src={URL.createObjectURL(selectedFile)} alt="Selected" className="max-w-xs max-h-64 object-cover rounded-md shadow-md" />
-              <form onSubmit={handleSubmit} className="w-full flex flex-col items-center mt-6">
+            <div className="mt-4 w-full flex flex-col items-center">
+              <img src={URL.createObjectURL(selectedFile)} alt="Selected" className="max-w-xs max-h-64 object-cover rounded-md shadow-md mb-4" />
+              <form onSubmit={handleSubmit} className="w-full flex flex-col items-center">
                 <button type="submit" className="bg-blue-700 text-white px-6 py-2 rounded-full text-lg font-semibold transition-transform duration-300 hover:scale-105 hover:-translate-y-1">
                   Predict
                 </button>
@@ -70,13 +68,13 @@ const Predict = ({ modelName }) => {
             </div>
           )}
         </div>
-        <div className="ml-6 flex flex-col items-center justify-center w-1/2">
+        <div className="flex flex-col items-center justify-center w-full md:w-1/2 md:ml-6">
           {loading ? (
             <ClipLoader size={50} color={"#123abc"} loading={loading} />
           ) : (
             response && (
               <>
-                <h3 className="text-2xl font-semibold mb-6 text-blue-700">Result</h3>
+                <h3 className="text-2xl font-semibold mb-4 md:mb-6 text-blue-700">Result</h3>
                 <div className="p-4 bg-gray-200 rounded-lg w-full h-full flex items-center justify-center">
                   <p>{response}</p>
                 </div>

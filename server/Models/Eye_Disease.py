@@ -5,6 +5,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, BatchNormalization, ReLU, MaxPooling2D, Flatten, Dense
 from dotenv import load_dotenv
 import os
+
 load_dotenv()
 
 class EyeDisease:

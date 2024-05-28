@@ -5,6 +5,7 @@ from tensorflow.keras.layers import GlobalAveragePooling2D, Dense
 from tensorflow.keras.applications import ResNet50
 from dotenv import load_dotenv
 import os
+
 load_dotenv()
 
 class SkinDisease:
@@ -76,4 +77,3 @@ class SkinDisease:
         predicted_class = np.argmax(predictions[0])
         
         return self.disease_classes[predicted_class]
-    

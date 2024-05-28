@@ -3,6 +3,9 @@ import cv2
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import GlobalAveragePooling2D, Dense
 from tensorflow.keras.applications import ResNet50
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 class SkinDisease:
     def __init__(self, num_classes=23, img_size=224) -> None:
@@ -44,7 +47,7 @@ class SkinDisease:
         predictions = Dense(self.num_classes, activation='softmax')(x)
         model = Model(inputs=base_model.input, outputs=predictions)
         
-        model.load_weights('Models\\data\\skin_weights.h5')
+        model.load_weights(os.getenv("SKIN_WEIGHTS_PATH"))
 
         return model
 

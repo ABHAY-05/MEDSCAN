@@ -3,6 +3,9 @@ import cv2
 from skimage import exposure, feature
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, BatchNormalization, ReLU, MaxPooling2D, Flatten, Dense
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 class EyeDisease:
     def __init__(self, num_classes=8, img_size=224):
@@ -10,7 +13,7 @@ class EyeDisease:
         self.num_classes = num_classes
         self.model = self.load_Model()
         self.clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-        self.reference_image = self.load_reference_image('Models\\data\\0.jpg')
+        self.reference_image = self.load_reference_image(os.getenv("IMAGE_PATH"))
         self.disease_classes = [
             "Normal", "Cataract", "Diabetes", "Glaucoma",
             "Hypertension", "Myopia", "Age Issues", "Other"
@@ -81,7 +84,7 @@ class EyeDisease:
         model.add(Dense(100, activation='relu'))
         model.add(Dense(self.num_classes, activation='softmax'))
 
-        model.load_weights('Models\\data\\eye_weights.h5')
+        model.load_weights(os.getenv("EYE_WEIGHTS_PATH"))
 
         return model
 

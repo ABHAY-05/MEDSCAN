@@ -41,7 +41,7 @@ MedScan is an advanced web application that leverages AI to provide automated de
 ```sh
 git clone https://github.com/yourusername/medscan.git
 cd medscan
-
+```
 
 ### Backend Setup
 

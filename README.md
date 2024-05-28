@@ -1,4 +1,3 @@
-```markdown
 # MedScan - Advanced Medical Image Analysis for Disease Diagnosis
 
 MedScan is an advanced web application that leverages AI to provide automated detection and diagnosis of various medical conditions, including pneumonia, eye diseases, and skin diseases. This project is built using a combination of FastAPI for the backend and React (with Vite and pnpm) for the frontend.
@@ -42,7 +41,7 @@ MedScan is an advanced web application that leverages AI to provide automated de
 ```sh
 git clone https://github.com/yourusername/medscan.git
 cd medscan
-```
+
 
 ### Backend Setup
 
@@ -120,4 +119,3 @@ Contributions are welcome! Please create a pull request or open an issue to disc
 
 - **Project Repository:** [MedScan](https://github.com/yourusername/medscan)
 - **Email:** abhayvermajune5@gmail.com
-```

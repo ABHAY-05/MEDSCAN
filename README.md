@@ -39,7 +39,7 @@ MedScan is an advanced web application that leverages AI to provide automated de
 ### Clone the Repository
 
 ```sh
-git clone https://github.com/yourusername/medscan.git
+git clone https://github.com/ABHAY-05/MEDSCAN.git
 cd medscan
 ```
 
@@ -117,5 +117,5 @@ Contributions are welcome! Please create a pull request or open an issue to disc
 
 ## Contact
 
-- **Project Repository:** [MedScan](https://github.com/yourusername/medscan)
+- **Project Repository:** [MedScan](https://github.com/ABHAY-05/MEDSCAN.git)
 - **Email:** abhayvermajune5@gmail.com

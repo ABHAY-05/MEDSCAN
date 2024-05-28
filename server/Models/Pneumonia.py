@@ -3,6 +3,9 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import GlobalAveragePooling2D, Dense
 import cv2
 from efficientnet.tfkeras import EfficientNetB0
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 class Pneumonia:
     def __init__(self, image_size=256) -> None:
@@ -18,7 +21,7 @@ class Pneumonia:
         model.add(GlobalAveragePooling2D())
         model.add(Dense(1, activation='sigmoid'))
         
-        model.load_weights(PNEUMONIA_WEIGHTS_PATH)
+        model.load_weights(os.getenv(PNEUMONIA_WEIGHTS_PATH))
 
         return model
     

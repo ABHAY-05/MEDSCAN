@@ -1,8 +1,10 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from tensorflow.keras.preprocessing.image import load_img, img_to_array
 import numpy as np
 import cv2
+from io import BytesIO
 from Models import *
 
 app = FastAPI()
@@ -32,8 +34,13 @@ class Model:
 
 model = Model()
 
-def read_imagefile(file) -> np.ndarray:
-    image = cv2.imdecode(np.frombuffer(file, np.uint8), cv2.IMREAD_COLOR)
+def read_imagefile(file, model_name) -> np.ndarray:
+    if model_name == "pneumonia":
+        image = load_img(BytesIO(file), target_size=(256, 256))
+        image = img_to_array(image)
+    else:
+        image = cv2.imdecode(np.frombuffer(file, np.uint8), cv2.IMREAD_COLOR)
+
     if image.ndim == 2:
         image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
     
@@ -42,7 +49,7 @@ def read_imagefile(file) -> np.ndarray:
 @app.post("/predict")
 async def main(model_name: str = Form(...), file: UploadFile = File(...)):
     try:
-        image = read_imagefile(await file.read())
+        image = read_imagefile(await file.read(), model_name)
         
         if model_name == "pneumonia":
             prediction = await model.predict_pneumonia(image)

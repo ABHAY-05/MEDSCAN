@@ -1,7 +1,6 @@
 import numpy as np
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import GlobalAveragePooling2D, Dense
-import cv2
 from efficientnet.tfkeras import EfficientNetB0
 from dotenv import load_dotenv
 import os
@@ -27,7 +26,6 @@ class Pneumonia:
         return model
     
     def preProcess(self, image: np.ndarray) -> np.array:
-        img = cv2.resize(image, (self.img_size, self.img_size))
         img = img / 255.0 
         img = np.expand_dims(img, axis=0)
         

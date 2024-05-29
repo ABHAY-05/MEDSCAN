@@ -26,7 +26,7 @@ class Pneumonia:
         return model
     
     def preProcess(self, image: np.ndarray) -> np.array:
-        img = img / 255.0 
+        img = image / 255.0 
         img = np.expand_dims(img, axis=0)
         
         return img
